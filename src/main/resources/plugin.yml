@@ -1,0 +1,5 @@
+name: ZenoraCoreUHC
+version: 0.1.0
+author: Mine
+main: fr.mine.Main
+load: startup
