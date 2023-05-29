@@ -2,6 +2,7 @@ package fr.mine.Commands;
 
 import fr.mine.Main;
 import fr.mine.ManageGame.GameManager;
+import fr.mine.enums.GameState;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
@@ -18,16 +19,11 @@ public class GamePlayerRelative implements CommandExecutor {
         Player player = (Player) commandSender;
         Location ploc = player.getLocation();
 
-        if(player.hasPermission("op") || gameManager.getGameState().getName().equalsIgnoreCase("Fermeture")){
+        if(player.hasPermission("op")){
             player.sendMessage(" §m- - - - - - - - - - - - - - - - - - - ");
             player.sendMessage(" Stats de votre Game : " );
-            if(gameManager.getGameState().getName().equalsIgnoreCase("en attente")){
-                player.sendMessage("    §7Statue §f: - §6En Attente");
-            }else if(gameManager.getGameState().getName().equalsIgnoreCase("en jeu")){
-                player.sendMessage("    §7Statue §f: - §aEn Jeu");
-            } else if(gameManager.getGameState().getName().equalsIgnoreCase("lancement")) {
-                player.sendMessage("    §7Statue §f: - §cLancement");
-            }
+            player.sendMessage(Main.getInstance().getGameManager().getGameState().getName().toLowerCase());
+
 
         }else{
             player.sendMessage("§b[Zenora] §7| §cVous n'avez pas la permission d'executer cette commande. ");

@@ -1,10 +1,12 @@
 package fr.mine;
 
+import fr.mine.Commands.CoreEtat;
 import fr.mine.Commands.GamePlayerRelative;
 import fr.mine.ManageGame.GameManager;
 import fr.mine.RelativePlayer.PlayerJoin;
 import fr.mine.utils.Title;
 import org.bukkit.Bukkit;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -13,6 +15,17 @@ public class Main extends JavaPlugin {
     public static Main getInstance(){ return instance;}
 
     public Title title = new Title();
+
+    public GameManager getGameManager() {
+        return gameManager;
+    }
+
+    public void setGameManager(GameManager gameManager) {
+        this.gameManager = gameManager;
+    }
+
+    GameManager gameManager = new GameManager();
+
 
 
     @Override
@@ -26,10 +39,10 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        GameManager gameManager = new GameManager();
 
         this.getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         this.getCommand("corestat").setExecutor(new GamePlayerRelative());
+        this.getCommand("coreetat").setExecutor(new CoreEtat());
 
 
         Bukkit.broadcastMessage(gameManager.getGameState().getName().toLowerCase());
