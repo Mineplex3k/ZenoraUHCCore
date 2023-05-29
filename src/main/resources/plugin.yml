@@ -3,3 +3,7 @@ version: 0.1.0
 author: Mine
 main: fr.mine.Main
 load: startup
+
+commands:
+  corestat:
+    description: Statut des joueurs dans la partie, avant le lancement

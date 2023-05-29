@@ -15,7 +15,7 @@ public class PlayerJoin implements Listener {
         if(player.hasPermission("op")){
             Main.getInstance().title.sendActionBar(player, " §cZenoraCoreUHC est activé ");
         }else{
-            Main.getInstance().title.sendActionBar(player, " §bMerci de Patienter, l'Host prepare l'ouverture");
+            Main.getInstance().title.sendActionBar(player, " §bMerci de Patienter, l'§lHost §bprepare l'ouverture");
         }
     }
 }
