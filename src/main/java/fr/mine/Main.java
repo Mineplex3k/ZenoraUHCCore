@@ -14,8 +14,6 @@ public class Main extends JavaPlugin {
 
     public Title title = new Title();
 
-    private GameManager gameManager;
-
 
     @Override
     public void onLoad() {
@@ -28,8 +26,13 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        GameManager gameManager = new GameManager();
+
         this.getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         this.getCommand("corestat").setExecutor(new GamePlayerRelative());
+
+
+        Bukkit.broadcastMessage(gameManager.getGameState().getName().toLowerCase());
     }
 
 
