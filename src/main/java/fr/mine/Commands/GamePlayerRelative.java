@@ -22,7 +22,7 @@ public class GamePlayerRelative implements CommandExecutor {
         if(player.hasPermission("op")){
             player.sendMessage(" §m- - - - - - - - - - - - - - - - - - - ");
             player.sendMessage(" Stats de votre Game : " );
-            player.sendMessage(Main.getInstance().getGameManager().getGameState().getName().toLowerCase());
+            player.sendMessage(   " - " + Main.getInstance().getGameManager().getGameState().getName().toUpperCase());
 
 
         }else{
