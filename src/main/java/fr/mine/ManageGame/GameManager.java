@@ -8,7 +8,7 @@ public class GameManager {
     GameState gameState;
 
     public GameManager(){
-        gameState = GameState.FINISH;
+        gameState = GameState.WAITING;
     }
 
 
