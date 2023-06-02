@@ -2,10 +2,22 @@ package fr.mine.Enums;
 
 public enum UHCType {
 
-    MEETUP(),
-    CLASSICO(),
-    MODEDEJEUX(),
+    MEETUP("meetup"),
+    CLASSICO("classique"),
+    MODEDEJEUX("mode de jeux");
 
-    private
+    private final String name;
+
+    UHCType(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+
+
 
 }

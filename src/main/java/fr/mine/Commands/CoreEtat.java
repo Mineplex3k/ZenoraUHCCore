@@ -34,7 +34,10 @@ public class CoreEtat implements CommandExecutor {
                 } else if (args[0].equalsIgnoreCase("game")) {
                     Main.getInstance().getGameManager().setGameState(GameState.GAME);
                     player.sendMessage(" Etat de : " + Main.getInstance().getGameManager().getGameState().getName().toUpperCase());
-                } else {
+                } else if (args[0].equalsIgnoreCase("finish")) {
+                    Main.getInstance().getGameManager().setGameState(GameState.FINISH);
+                    player.sendMessage(" Etat de : " + Main.getInstance().getGameManager().getGameState().getName().toUpperCase());
+                }else{
                     player.sendMessage(" ");
                     player.sendMessage("§b[Zenora] §7| §cVotre commande est Incorrect");
                     player.sendMessage(" ");

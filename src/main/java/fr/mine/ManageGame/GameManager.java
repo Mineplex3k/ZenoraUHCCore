@@ -2,12 +2,15 @@ package fr.mine.ManageGame;
 
 
 import fr.mine.Enums.GameState;
+import fr.mine.Enums.UHCType;
 
 public class GameManager {
-
+    UHCType uhcType;
+    UHCType uhcConfig;
     GameState gameState;
     int playersize;
     int roledistritime;
+    String prefix;
 
     int min;
     int sec;
@@ -17,13 +20,15 @@ public class GameManager {
 
     public GameManager(){
         gameState = GameState.WAITING;
+        uhcType = UHCType.MODEDEJEUX;
+        uhcConfig = UHCType.CLASSICO; //Type de Meetup : Classico ou a Mode de Jeux
+        prefix = "§b[Zenora] §7|§f";
         playersize = 24;
         roledistritime = 20;  //uniquement en minute
         heure = 0;
         min = 0;
-        heure = 0;   //TODO : heure, min, sec admin uniquement
+        heure = 0;   //TODO : heure, min, sec admin uniquement dans le GUI host
         invinci = 5;
-
     }
 
     //Game Manager Etat de la partie
@@ -83,6 +88,18 @@ public class GameManager {
 
     public void setInvinci(int invinci) {
         this.invinci = invinci;
+    }
+
+    public UHCType getUhcType() {
+        return uhcType;
+    }
+
+    public void setUhcType(UHCType uhcType) {
+        this.uhcType = uhcType;
+    }
+
+    public String getPrefix() {
+        return prefix;
     }
 
 }
