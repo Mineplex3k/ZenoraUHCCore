@@ -1,4 +1,4 @@
-package fr.mine.utils;
+package fr.mine.Utils;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;

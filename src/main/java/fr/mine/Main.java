@@ -4,9 +4,8 @@ import fr.mine.Commands.CoreEtat;
 import fr.mine.Commands.GamePlayerRelative;
 import fr.mine.ManageGame.GameManager;
 import fr.mine.RelativePlayer.PlayerJoin;
-import fr.mine.utils.Title;
+import fr.mine.Utils.Title;
 import org.bukkit.Bukkit;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -45,7 +44,7 @@ public class Main extends JavaPlugin {
         this.getCommand("coreetat").setExecutor(new CoreEtat());
 
 
-        Bukkit.broadcastMessage(gameManager.getGameState().getName().toLowerCase());
+        Bukkit.broadcastMessage(this.gameManager.getGameState().getName().toLowerCase());
     }
 
 

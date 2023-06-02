@@ -2,7 +2,6 @@ package fr.mine.RelativePlayer;
 
 import fr.mine.Main;
 import fr.mine.ManageGame.GameManager;
-import fr.mine.enums.GameState;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

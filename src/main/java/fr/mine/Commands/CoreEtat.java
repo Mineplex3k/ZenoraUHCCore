@@ -1,8 +1,7 @@
 package fr.mine.Commands;
 
 import fr.mine.Main;
-import fr.mine.ManageGame.GameManager;
-import fr.mine.enums.GameState;
+import fr.mine.Enums.GameState;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

@@ -1,4 +1,4 @@
-package fr.mine.utils;
+package fr.mine.Utils;
 
 import net.minecraft.server.v1_8_R3.*;
 import net.minecraft.server.v1_8_R3.IChatBaseComponent.ChatSerializer;

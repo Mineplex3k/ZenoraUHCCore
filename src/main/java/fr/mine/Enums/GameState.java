@@ -1,4 +1,4 @@
-package fr.mine.enums;
+package fr.mine.Enums;
 public enum GameState {
 
     WAITING("En attente"),

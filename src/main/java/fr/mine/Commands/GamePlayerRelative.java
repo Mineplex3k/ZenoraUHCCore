@@ -2,7 +2,6 @@ package fr.mine.Commands;
 
 import fr.mine.Main;
 import fr.mine.ManageGame.GameManager;
-import fr.mine.enums.GameState;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
