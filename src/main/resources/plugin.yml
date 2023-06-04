@@ -10,3 +10,9 @@ commands:
 
   coreetat:
     description: Change le statue de votre partie
+
+  corehost:
+    description: Lance la configuration de l'host
+
+  coresethost:
+    description: Donne les droit d'host a un jour

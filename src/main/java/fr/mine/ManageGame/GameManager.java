@@ -20,15 +20,15 @@ public class GameManager {
 
     public GameManager(){
         gameState = GameState.WAITING;
-        uhcType = UHCType.MODEDEJEUX;
+        uhcType = UHCType.NONE;
         uhcConfig = UHCType.CLASSICO; //Type de Meetup : Classico ou a Mode de Jeux
         prefix = "§b[Zenora] §7|§f";
         playersize = 24;
         roledistritime = 20;  //uniquement en minute
-        heure = 0;
+        sec = 0;
         min = 0;
         heure = 0;   //TODO : heure, min, sec admin uniquement dans le GUI host
-        invinci = 5;
+        invinci = 5; //minute
     }
 
     //Game Manager Etat de la partie
@@ -101,5 +101,14 @@ public class GameManager {
     public String getPrefix() {
         return prefix;
     }
+
+    public UHCType getUhcConfig() {
+        return uhcConfig;
+    }
+
+    public void setUhcConfig(UHCType uhcConfig) {
+        this.uhcConfig = uhcConfig;
+    }
+
 
 }

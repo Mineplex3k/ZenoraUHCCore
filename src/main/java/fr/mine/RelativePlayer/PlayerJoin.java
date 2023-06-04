@@ -13,16 +13,15 @@ public class PlayerJoin implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
-
         Player player = event.getPlayer();
-
         if(player.hasPermission("op")){
-            Main.getInstance().title.sendActionBar(player, " §cZenoraCoreUHC est activé ");
-            /* player.sendMessage(gameManager.getGameState().getName().toLowerCase());
+            Main.getInstance().title.sendActionBar(player, " §cZenoraCoreUHC est activé " );
+            /*player.sendMessage(gameManager.getGameState().getName().toLowerCase());
             gameManager.setGameState(GameState.GAME);
             player.sendMessage(gameManager.getGameState().getName().toLowerCase()); */
         }else{
             Main.getInstance().title.sendActionBar(player, " §bMerci de Patienter, l'§lHost §bprepare l'ouverture");
         }
+
     }
 }

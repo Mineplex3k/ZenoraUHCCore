@@ -22,24 +22,30 @@ public class GamePlayerRelative implements CommandExecutor {
 
         if(player.hasPermission("op")){
             player.sendMessage(" §m- - - - - - - - - - - - - - - - - - - ");
-            player.sendMessage(" Stats de votre §cHost §f: " );
+            player.sendMessage(" Stats de votre §bHost §f: " );
+            player.sendMessage(" ");
             player.sendMessage("  Votre Partie est actuellement sur :");
             player.sendMessage("     - " + Main.getInstance().getGameManager().getGameState().getName().toUpperCase());
             player.sendMessage("  Votre Partie est un : ");
-            player.sendMessage("     - " + Main.getInstance().getGameManager().getUhcType().getName().toUpperCase());
+            if(Main.getInstance().getGameManager().getUhcType().getName().equals(UHCType.MEETUP.getName())){
+                player.sendMessage("     - " + Main.getInstance().getGameManager().getUhcType().getName().toUpperCase() + " | " + Main.getInstance().getGameManager().getUhcConfig().getName().toUpperCase());
+            }else{
+                player.sendMessage("     - " + Main.getInstance().getGameManager().getUhcType().getName().toUpperCase());
+            }
             player.sendMessage("  Votre Partie peut contenir un maximum de :");
             player.sendMessage("     - " + Main.getInstance().getGameManager().getPlayersize() + " joueurs.");
             player.sendMessage("  L'invicibilité durera : ");
             player.sendMessage("     - " + Main.getInstance().getGameManager().getInvinci() + " Minutes.");
-            if(Main.getInstance().getGameManager().getUhcType().getName().equals(UHCType.MODEDEJEUX.getName())){
-                player.sendMessage( "  Les Roles seront distribués a partir de :");
-                player.sendMessage("     - " + Main.getInstance().getGameManager().getRoledistritime() + " Minutes.");
+            if(Main.getInstance().getGameManager().getUhcType().getName().equals(UHCType.MODEDEJEUX.getName())) {
+                player.sendMessage("  Les Roles seront distribués a partir de :");
+                player.sendMessage("     - " + Main.getInstance().getGameManager(z).getRoledistritime() + " Minutes.");
                 player.sendMessage(" §m- - - - - - - - - - - - - - - - - - - ");
             }else{
                 player.sendMessage(" §m- - - - - - - - - - - - - - - - - - - ");
             }
             player.sendMessage(" ");
             player.sendMessage(Main.getInstance().getGameManager().getPrefix() + " Bon Host sur notre serveur.");
+            Main.getInstance().title.sendActionBar(player, "hello");
 
         }else{
             player.sendMessage(Main.getInstance().getGameManager().getPrefix() + " §cVous n'avez pas la permission d'executer cette commande. ");

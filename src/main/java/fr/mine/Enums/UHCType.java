@@ -3,8 +3,9 @@ package fr.mine.Enums;
 public enum UHCType {
 
     MEETUP("meetup"),
-    CLASSICO("classique"),
-    MODEDEJEUX("mode de jeux");
+    CLASSICO("Classico"),
+    MODEDEJEUX("mode de jeux"),
+    NONE("none");
 
     private final String name;
 
