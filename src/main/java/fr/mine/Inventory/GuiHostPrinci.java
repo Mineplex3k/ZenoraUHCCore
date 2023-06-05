@@ -9,6 +9,7 @@ import fr.minuskube.inv.SmartInventory;
 import fr.minuskube.inv.content.InventoryContents;
 import fr.minuskube.inv.content.InventoryProvider;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
@@ -25,6 +26,47 @@ public class GuiHostPrinci implements InventoryProvider {
 
     @Override
     public void init(Player player, InventoryContents contents){
+
+        ItemStack playernum = new ItemBuilder(Material.DIAMOND_SWORD)
+                .setName("§bNombre de joueurs pouvent acceder a la partie")
+                .toItemStack();
+
+        ItemStack ChoixJeu = new ItemBuilder(Material.DIAMOND)
+                .setName("Recommence ton choix de jeux ?")
+                .toItemStack();
+
+        contents.set(0,2, ClickableItem.of(playernum, inventoryClickEvent -> {
+            GuiJoueurs.INV.open(player);
+        }));
+
+        contents.set(5, 8, ClickableItem.of(ChoixJeu, inventoryClickEvent -> {
+            GuiChoise.INV.open(player);
+        }));
+
+
+    }
+
+    @Override
+    public void update(Player player, InventoryContents contents) {
+
+        ItemStack meetup = new ItemBuilder(Material.WOOL,1, (short) 3)
+                .setName("§b" + Main.getInstance().getGameManager().getUhcType().getName().toUpperCase())
+                .setLore(" §fMeetup en Mode : §b" + Main.getInstance().getGameManager().getUhcConfig().getName().toUpperCase())
+                .toItemStack();
+
+        ItemStack modedejeux = new ItemBuilder(Material.WOOL,1,(short)4)
+                .setName("§e" +  Main.getInstance().getGameManager().getUhcType().getName().toUpperCase())
+                .toItemStack();
+
+        ItemStack classico = new ItemBuilder(Material.WOOL, 1, (short) 14)
+                .setName("§c" +  Main.getInstance().getGameManager().getUhcType().getName().toUpperCase())
+                .toItemStack();
+
+        ItemStack none = new ItemBuilder(Material.BEDROCK)
+                .setLore("§cGame non configuré.")
+                .setName("NONE")
+                .toItemStack();
+
         if(Main.getInstance().getGameManager().getUhcType().getName().equals(UHCType.MEETUP.getName())){
             contents.set(0,0, ClickableItem.of(meetup, inventoryClickEvent -> {
             }));
@@ -39,37 +81,6 @@ public class GuiHostPrinci implements InventoryProvider {
                 GuiChoise.INV.open(player);
             }));
         }
-
-        contents.set(0,2, ClickableItem.of(playernum, inventoryClickEvent -> {
-            GuiJoueurs.INV.open(player);
-        }));
-
-
     }
 
-    @Override
-    public void update(Player player, InventoryContents contents) {
-    }
-
-    ItemStack meetup = new ItemBuilder(Material.WOOL,1, (short) 3)
-            .setName("§b" + Main.getInstance().getGameManager().getUhcType().getName().toUpperCase())
-            .setLore(" §fMeetup en Mode : §b" + Main.getInstance().getGameManager().getUhcConfig().getName().toUpperCase())
-            .toItemStack();
-
-    ItemStack modedejeux = new ItemBuilder(Material.WOOL,1,(short)4)
-            .setName("§e" +  Main.getInstance().getGameManager().getUhcType().getName().toUpperCase())
-            .toItemStack();
-
-    ItemStack classico = new ItemBuilder(Material.WOOL, 1, (short) 14)
-            .setName("§c" +  Main.getInstance().getGameManager().getUhcType().getName().toUpperCase())
-            .toItemStack();
-
-    ItemStack none = new ItemBuilder(Material.BEDROCK)
-            .setLore("§cGame non configuré.")
-            .setName("NONE")
-            .toItemStack();
-    ItemStack playernum = new ItemBuilder(Material.SKULL)
-            .setLore("§bNombre de joueurs pouvent acceder a la partie")
-            .setName( " §b" + Main.getInstance().getGameManager().getPlayersize())
-            .toItemStack();
 }

@@ -1,5 +1,6 @@
 package fr.mine.Inventory.PlusMoins;
 
+import fr.mine.Inventory.GuiChoise;
 import fr.mine.Inventory.GuiHostPrinci;
 import fr.mine.Main;
 import fr.mine.Utils.ItemBuilder;
@@ -24,24 +25,34 @@ public class GuiJoueurs implements InventoryProvider {
             .type(InventoryType.CHEST)
             .build();
 
-    Player[] players = getServer().getOnlinePlayers().toArray(new Player[0]);
-    int playersnum = players.length;
-
     @Override
     public void init(Player player, InventoryContents contents) {
 
     }
     @Override
     public void update(Player player, InventoryContents contents) {
+        Player[] players = getServer().getOnlinePlayers().toArray(new Player[0]);
+        int playersnum = players.length;
+
+        ItemStack affichage = new ItemBuilder(Material.BOOK)
+                .setName(" §7" + Main.getInstance().getGameManager().getPlayersize())
+                .setLore(" Nombre de joueurs connecté actuellement : §b" + playersnum)
+                .toItemStack();
+
         contents.set(1,4, ClickableItem.of(affichage, inventoryClickEvent -> {
+            GuiJoueurs.INV.open(player);
         }));
 
         contents.set(1,5, ClickableItem.of(plus, inventoryClickEvent -> {
-            Main.getInstance().getGameManager().setPlayersize(+1);
+            int z = Main.getInstance().getGameManager().getPlayersize();
+            z++;
+            Main.getInstance().getGameManager().setPlayersize(z);
         }));
 
         contents.set(1,3,  ClickableItem.of(moins, inventoryClickEvent -> {
-            Main.getInstance().getGameManager().setPlayersize(-1);
+            int i = Main.getInstance().getGameManager().getPlayersize();
+            i--;
+            Main.getInstance().getGameManager().setPlayersize(i);
         }));
 
         contents.set(2, 8, ClickableItem.of(quitter,inventoryClickEvent -> {
@@ -51,10 +62,6 @@ public class GuiJoueurs implements InventoryProvider {
 
     }
 
-    ItemStack affichage = new ItemBuilder(Material.BOOK)
-            .setName(" §7" + Main.getInstance().getGameManager().getPlayersize())
-            .setLore(" Nombre de joueurs connecté actuellement : §b" + playersnum)
-            .toItemStack();
 
     ItemStack plus = new ItemBuilder(Material.WOOL)
             .setName(" §a+ ")

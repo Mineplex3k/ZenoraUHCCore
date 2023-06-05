@@ -66,7 +66,7 @@ public class GameManager {
         return sec;
     }
 
-    public void setSec(int sec) {
+    public void setSec() {
         this.sec = sec;
     }
 
