@@ -1,6 +1,7 @@
 package fr.mine.Inventory;
 
 import fr.mine.Enums.UHCType;
+import fr.mine.Inventory.PlusMoins.GuiJoueurs;
 import fr.mine.Main;
 import fr.mine.Utils.ItemBuilder;
 import fr.minuskube.inv.ClickableItem;
@@ -33,7 +34,17 @@ public class GuiHostPrinci implements InventoryProvider {
         }else if(Main.getInstance().getGameManager().getUhcType().getName().equals(UHCType.MODEDEJEUX.getName())){
             contents.set(0,0, ClickableItem.of(classico, inventoryClickEvent -> {
             }));
+        }else {
+            contents.set(0,0,ClickableItem.of(none, inventoryClickEvent -> {
+                GuiChoise.INV.open(player);
+            }));
         }
+
+        contents.set(0,2, ClickableItem.of(playernum, inventoryClickEvent -> {
+            GuiJoueurs.INV.open(player);
+        }));
+
+
     }
 
     @Override
@@ -51,5 +62,14 @@ public class GuiHostPrinci implements InventoryProvider {
 
     ItemStack classico = new ItemBuilder(Material.WOOL, 1, (short) 14)
             .setName("§c" +  Main.getInstance().getGameManager().getUhcType().getName().toUpperCase())
+            .toItemStack();
+
+    ItemStack none = new ItemBuilder(Material.BEDROCK)
+            .setLore("§cGame non configuré.")
+            .setName("NONE")
+            .toItemStack();
+    ItemStack playernum = new ItemBuilder(Material.SKULL)
+            .setLore("§bNombre de joueurs pouvent acceder a la partie")
+            .setName( " §b" + Main.getInstance().getGameManager().getPlayersize())
             .toItemStack();
 }

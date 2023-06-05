@@ -4,8 +4,8 @@ public enum UHCType {
 
     MEETUP("meetup"),
     CLASSICO("Classico"),
-    MODEDEJEUX("mode de jeux"),
-    NONE("none");
+    MODEDEJEUX("Mode De Jeux"),
+    NONE("None");
 
     private final String name;
 

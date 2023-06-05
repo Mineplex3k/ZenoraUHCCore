@@ -38,7 +38,7 @@ public class GamePlayerRelative implements CommandExecutor {
             player.sendMessage("     - " + Main.getInstance().getGameManager().getInvinci() + " Minutes.");
             if(Main.getInstance().getGameManager().getUhcType().getName().equals(UHCType.MODEDEJEUX.getName())) {
                 player.sendMessage("  Les Roles seront distribués a partir de :");
-                player.sendMessage("     - " + Main.getInstance().getGameManager(z).getRoledistritime() + " Minutes.");
+                player.sendMessage("     - " + Main.getInstance().getGameManager().getRoledistritime() + " Minutes.");
                 player.sendMessage(" §m- - - - - - - - - - - - - - - - - - - ");
             }else{
                 player.sendMessage(" §m- - - - - - - - - - - - - - - - - - - ");

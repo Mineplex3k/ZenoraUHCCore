@@ -46,10 +46,6 @@ public class GameManager {
         this.playersize = playersize;
     }
 
-    public void setPlayersize(int playersize) {
-        this.playersize = playersize;
-    }
-
     public int getRoledistritime() {
         return roledistritime;
     }
